@@ -5,7 +5,7 @@ package.domain = mx.cipher
 source.dir = .
 source.include_exts = py,png,ttf,json
 version = 1.0
-requirements = python3,kivy==2.3.0
+requirements = python3,kivy,openssl,requests
 orientation = portrait
 fullscreen = 0
 icon.filename = assets/logo_cipher.png
