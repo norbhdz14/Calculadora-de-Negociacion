@@ -6,17 +6,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Build with Buildozer
-        uses: kivy/buildozer-action@main
+      - uses: actions/checkout@v4
+      
+      - uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          filename: buildozer.spec
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+          command: buildozer android debug
+          buildozer_version: stable
+          
+      - uses: actions/upload-artifact@v4
         with:
-          name: package
-          path: bin/*.apk
+          name: apk
+          path: ${{ steps.buildozer.outputs.filename }}
