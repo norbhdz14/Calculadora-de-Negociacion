@@ -28,6 +28,8 @@ jobs:
       - name: Run Buildozer
         run: |
           export PATH=$PATH:~/.local/bin
+          # Aceptar licencias de Android SDK previamente
+          yes | buildozer android debug || true
           buildozer android debug
 
       - name: Upload APK Artifact
